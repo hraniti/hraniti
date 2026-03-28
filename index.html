@@ -1,1 +1,1249 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HRaniti delivers specialist IT staffing and custom software engineering across Germany, USA, and India. Validated SAP experts, AI engineers, and scalable technology — built on technical depth.">
+<meta name="keywords" content="IT staffing, SAP recruitment, software development, AI engineering, cloud DevOps, Germany, India, USA, custom software">
+<meta property="og:title" content="HRaniti — Where Change Begins">
+<meta property="og:description" content="Specialist IT Staffing & Technology Services across Germany, USA, and India. Technical depth. Validated outcomes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hraniti.com">
+<meta name="robots" content="index, follow">
+<title>HRaniti — Specialist IT Staffing & Technology Services | Germany · USA · India</title>
+<link rel="canonical" href="https://hraniti.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='22' cy='8' r='6' fill='%238B2FC9'/><path d='M6 16 Q6 11 11 11 L18 11 L18 25 L6 25 Z' fill='%235B2D8E'/><path d='M18 11 L25 11 Q30 11 30 16 L30 25 L18 25 Z' fill='%23E8402A'/><path d='M4 27 Q4 32 9 32 L31 32 Q36 32 36 37 L4 37 Z' fill='%2300D4E8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════
+   DESIGN TOKENS — Logo-matched palette
+   Purple #8B2FC9 · Violet #5B2D8E
+   Coral  #E8402A · Cyan  #00D4E8
+   Navy   #0D1F35
+════════════════════════════════════════ */
+:root {
+  --navy:      #0D1F35;
+  --navy-mid:  #122840;
+  --navy-dk:   #080F1C;
+  --purple:    #8B2FC9;
+  --violet:    #5B2D8E;
+  --coral:     #E8402A;
+  --cyan:      #00D4E8;
+  --cyan-dk:   #00A8BA;
+  --cyan-glow: rgba(0,212,232,0.14);
+  --white:     #FFFFFF;
+  --off:       #F5F7FA;
+  --off-2:     #EEF2F7;
+  --text:      #0D1F35;
+  --muted:     #4E6A84;
+  --light:     #8FAEC8;
+  --border:    rgba(0,212,232,0.14);
+  --border-lt: rgba(13,31,53,0.08);
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'DM Sans', system-ui, sans-serif;
+  --mono:      'DM Mono', monospace;
+}
+
+/* ─── RESET ─── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:var(--sans); color:var(--text); background:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+button { cursor:pointer; font-family:var(--sans); }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--navy-dk); }
+::-webkit-scrollbar-thumb { background:var(--cyan); border-radius:4px; }
+
+/* ─── SKIP ─── */
+.skip { position:absolute; top:-60px; left:0; background:var(--cyan); color:var(--navy); padding:10px 24px; z-index:9999; border-radius:0 0 8px 0; transition:top .2s; font-weight:600; font-size:14px; }
+.skip:focus { top:0; }
+
+/* ─── FADE UP ─── */
+.fade-up { opacity:0; transform:translateY(30px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.fade-up.visible { opacity:1; transform:none; }
+.delay-1 { transition-delay:.1s; } .delay-2 { transition-delay:.2s; }
+.delay-3 { transition-delay:.3s; } .delay-4 { transition-delay:.4s; }
+
+/* ─── SECTION BASE ─── */
+section { padding:108px 6%; }
+.sec-in { max-width:1220px; margin:0 auto; }
+
+.sec-label {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--cyan); margin-bottom:18px;
+}
+.sec-label::before { content:''; width:22px; height:2px; background:var(--cyan); display:inline-block; }
+.sec-label.purple { color:var(--purple); }
+.sec-label.purple::before { background:var(--purple); }
+.sec-label.coral { color:var(--coral); }
+.sec-label.coral::before { background:var(--coral); }
+
+.sec-h {
+  font-family:var(--serif); font-size:clamp(34px,4vw,52px);
+  font-weight:400; line-height:1.12; color:var(--navy); letter-spacing:-.3px;
+}
+.sec-h em { font-style:italic; color:var(--purple); }
+.sec-h.white { color:white; }
+.sec-h.white em { color:var(--cyan); }
+
+.sec-sub { font-size:16px; color:var(--muted); line-height:1.8; margin-top:14px; font-weight:300; max-width:520px; }
+
+/* ═════════════════════════════════════════
+   NAV
+═════════════════════════════════════════ */
+#nav {
+  position:fixed; inset:0 0 auto 0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 6%; height:74px;
+  background:rgba(8,15,28,0.96);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(0,212,232,0.1);
+  transition:height .3s, background .3s;
+}
+#nav.slim { height:64px; background:rgba(8,15,28,0.99); }
+
+.nav-logo { display:flex; align-items:center; gap:11px; }
+.nav-logo-svg { width:38px; height:38px; flex-shrink:0; transition:transform .3s; }
+.nav-logo:hover .nav-logo-svg { transform:scale(1.05); }
+.nav-wordmark { font-family:var(--serif); font-size:23px; font-weight:600; color:white; letter-spacing:.3px; }
+.nav-wordmark span { color:var(--cyan); }
+
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a {
+  color:rgba(255,255,255,.58); font-size:13.5px; font-weight:400;
+  letter-spacing:.2px; transition:color .2s; position:relative;
+}
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--cyan); transform:scaleX(0); transform-origin:left; transition:transform .22s; }
+.nav-links a:hover { color:white; }
+.nav-links a:hover::after, .nav-links a.on::after { transform:scaleX(1); }
+.nav-links a.on { color:rgba(255,255,255,.9); }
+
+.nav-cta {
+  background:var(--cyan) !important; color:var(--navy) !important;
+  padding:9px 22px; border-radius:7px; font-weight:600 !important;
+  font-size:13px !important; transition:all .22s !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:white !important; transform:translateY(-1px); box-shadow:0 6px 24px rgba(0,212,232,.35); }
+
+.hbg { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px; }
+.hbg span { display:block; width:22px; height:1.5px; background:white; border-radius:2px; transition:all .28s; }
+.hbg.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.hbg.open span:nth-child(2) { opacity:0; }
+.hbg.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+.mob-menu {
+  position:fixed; top:64px; inset-x:0; z-index:999;
+  background:rgba(8,15,28,.99); backdrop-filter:blur(20px);
+  padding:12px 6% 28px; border-bottom:1px solid rgba(0,212,232,.1);
+  display:none; flex-direction:column;
+}
+.mob-menu.open { display:flex; }
+.mob-menu a { padding:14px 0; color:rgba(255,255,255,.55); font-size:15px; border-bottom:1px solid rgba(255,255,255,.05); transition:color .2s; }
+.mob-menu a:hover { color:var(--cyan); }
+.mob-menu .mob-cta { margin-top:14px; background:var(--cyan); color:var(--navy); text-align:center; border-radius:8px; font-weight:700; border-bottom:none !important; padding:14px !important; }
+
+/* ═════════════════════════════════════════
+   HERO
+═════════════════════════════════════════ */
+.hero {
+  min-height:100vh; background:var(--navy);
+  position:relative; display:flex; align-items:center; overflow:hidden;
+  padding-top:74px;
+}
+
+/* Background effects */
+.hero-grid {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,212,232,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,232,.055) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent 85%);
+}
+.hero-orb-1 { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(139,47,201,.16) 0%, transparent 65%); top:-200px; right:-150px; animation:float 12s ease-in-out infinite; pointer-events:none; }
+.hero-orb-2 { position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(0,212,232,.09) 0%, transparent 65%); bottom:-100px; left:5%; animation:float 15s ease-in-out infinite reverse; pointer-events:none; }
+.hero-orb-3 { position:absolute; width:350px; height:350px; border-radius:50%; background:radial-gradient(circle, rgba(232,64,42,.07) 0%, transparent 65%); top:40%; left:35%; animation:float 10s ease-in-out infinite .6s; pointer-events:none; }
+@keyframes float { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-24px,20px) scale(1.03);} }
+
+.hero-content {
+  position:relative; z-index:2; max-width:1220px; margin:0 auto;
+  padding:72px 6%; display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center; width:100%;
+}
+.hero-left { padding-top:12px; }
+
+/* Intent toggle */
+.intent-wrap { display:inline-flex; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:100px; padding:4px; gap:4px; margin-bottom:36px; }
+.intent-btn { padding:9px 22px; border-radius:100px; font-size:13px; font-weight:500; color:rgba(255,255,255,.45); border:none; background:none; font-family:var(--sans); transition:all .22s; }
+.intent-btn.on { background:white; color:var(--navy); font-weight:700; }
+
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,212,232,.1); border:1px solid rgba(0,212,232,.22); padding:6px 15px; border-radius:100px; margin-bottom:26px; }
+.badge-dot { width:6px; height:6px; background:var(--cyan); border-radius:50%; animation:blink 2.2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.3);} }
+.hero-badge span { font-size:11.5px; font-weight:600; color:var(--cyan); letter-spacing:1.2px; text-transform:uppercase; }
+
+/* Hero content blocks */
+.hcb { display:none; }
+.hcb.on { display:block; animation:hIn .55s cubic-bezier(.16,1,.3,1) both; }
+@keyframes hIn { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:none;} }
+
+.hero-h1 { font-family:var(--serif); font-size:clamp(48px,6vw,76px); font-weight:300; line-height:1.07; color:white; margin-bottom:22px; letter-spacing:-.5px; }
+.hero-h1 em { font-style:italic; color:var(--cyan); }
+.hero-h1 strong { font-weight:700; }
+
+.hero-p { font-size:16.5px; line-height:1.78; color:rgba(255,255,255,.52); margin-bottom:40px; max-width:490px; font-weight:300; }
+.hero-p strong { color:rgba(255,255,255,.82); font-weight:500; }
+
+.hero-btns { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg, var(--cyan), var(--cyan-dk));
+  color:var(--navy); padding:14px 30px; border-radius:8px;
+  font-size:14px; font-weight:700; letter-spacing:.1px;
+  transition:all .28s; box-shadow:0 4px 24px rgba(0,212,232,.3);
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(0,212,232,.45); }
+
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  color:rgba(255,255,255,.65); padding:14px 26px;
+  border:1px solid rgba(255,255,255,.16); border-radius:8px;
+  font-size:14px; font-weight:400; transition:all .22s;
+}
+.btn-ghost:hover { border-color:var(--cyan); color:white; }
+
+/* Hero metrics */
+.hero-metrics { display:flex; gap:36px; margin-top:50px; padding-top:36px; border-top:1px solid rgba(255,255,255,.08); }
+.hm-n { font-family:var(--serif); font-size:38px; font-weight:600; color:white; line-height:1; }
+.hm-n span { color:var(--cyan); font-size:22px; }
+.hm-l { font-size:11.5px; color:rgba(255,255,255,.38); margin-top:5px; letter-spacing:.6px; text-transform:uppercase; }
+
+/* Hero right — division cards */
+.hero-right { display:flex; flex-direction:column; gap:18px; }
+.div-card {
+  background:rgba(255,255,255,.04); border:1px solid rgba(0,212,232,.14);
+  border-radius:16px; padding:28px 30px; position:relative; overflow:hidden;
+  transition:all .32s; backdrop-filter:blur(8px);
+  animation:cardIn .8s cubic-bezier(.16,1,.3,1) both;
+}
+.div-card:nth-child(1) { animation-delay:.5s; }
+.div-card:nth-child(2) { animation-delay:.65s; }
+.div-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, var(--purple), var(--cyan)); opacity:0; transition:opacity .3s; }
+.div-card:hover { background:rgba(0,212,232,.07); border-color:rgba(0,212,232,.3); transform:translateX(5px); }
+.div-card:hover::before { opacity:1; }
+.div-card.hr::before { background:linear-gradient(90deg, var(--purple), var(--cyan)); }
+.div-card.tech::before { background:linear-gradient(90deg, var(--coral), var(--purple)); }
+@keyframes cardIn { from{opacity:0;transform:translateX(20px);} to{opacity:1;transform:none;} }
+
+.dc-icon { width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:21px; margin-bottom:14px; }
+.div-card.hr .dc-icon { background:rgba(139,47,201,.15); }
+.div-card.tech .dc-icon { background:rgba(0,212,232,.12); }
+.div-card h3 { font-family:var(--serif); font-size:21px; font-weight:600; color:white; margin-bottom:8px; }
+.div-card > p { font-size:13.5px; color:rgba(255,255,255,.48); line-height:1.62; }
+.div-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+.dtag { font-size:11px; padding:4px 11px; background:rgba(0,212,232,.08); border:1px solid rgba(0,212,232,.16); border-radius:100px; color:var(--cyan); font-weight:500; letter-spacing:.2px; }
+
+/* Scroll cue */
+.scroll-cue { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; z-index:3; animation:fadeInUp 1.5s ease 1.6s both; }
+.scroll-cue p { font-size:10px; color:rgba(255,255,255,.28); letter-spacing:2px; text-transform:uppercase; }
+.scroll-line { width:1px; height:44px; background:linear-gradient(to bottom, var(--cyan), transparent); animation:scrollAnim 2.2s ease-in-out infinite; }
+@keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top;opacity:1;} 50%{transform:scaleY(1);transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0);transform-origin:bottom;opacity:.3;} }
+@keyframes fadeInUp { from{opacity:0;} to{opacity:1;} }
+
+/* Hero entrance */
+.hero-left > * { animation:heroIn .9s cubic-bezier(.16,1,.3,1) both; }
+.intent-wrap { animation-delay:.08s; }
+.hero-badge { animation-delay:.22s; }
+.hcb.on { animation-delay:.36s; }
+.hero-metrics { animation-delay:.7s; }
+@keyframes heroIn { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:none;} }
+
+/* ═════════════════════════════════════════
+   MARQUEE
+═════════════════════════════════════════ */
+.marquee-sec { background:var(--purple); padding:14px 0; overflow:hidden; }
+.marquee-track { display:flex; width:max-content; animation:marquee 30s linear infinite; white-space:nowrap; }
+.mi { display:inline-flex; align-items:center; gap:20px; padding:0 28px; font-size:12px; font-weight:700; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:1.8px; }
+.ms { color:rgba(255,255,255,.35); font-size:14px; }
+@keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ═════════════════════════════════════════
+   ABOUT
+═════════════════════════════════════════ */
+.about-sec { background:var(--off); }
+
+.about-grid { display:grid; grid-template-columns:1fr 1.05fr; gap:80px; align-items:start; margin-top:60px; }
+
+.about-visual { position:relative; }
+.about-card {
+  background:var(--navy); border-radius:20px; padding:44px 40px; position:relative; overflow:hidden;
+}
+.about-card::before { content:''; position:absolute; top:-80px; right:-80px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(139,47,201,.18) 0%, transparent 60%); }
+.about-card::after { content:''; position:absolute; bottom:-60px; left:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(0,212,232,.12) 0%, transparent 60%); }
+.about-bg-letters { font-family:var(--serif); font-size:110px; font-weight:700; line-height:1; color:rgba(0,212,232,.1); position:absolute; top:16px; right:20px; letter-spacing:-6px; pointer-events:none; z-index:0; }
+.about-quote-wrap { position:relative; z-index:1; }
+.about-quote { font-family:var(--serif); font-size:26px; font-weight:300; color:white; line-height:1.45; font-style:italic; margin-bottom:20px; }
+.about-quote em { color:var(--cyan); font-style:italic; }
+.about-attr { font-size:12.5px; color:rgba(255,255,255,.38); }
+.about-attr strong { color:rgba(255,255,255,.72); font-weight:600; display:block; font-size:14px; margin-bottom:2px; font-style:normal; }
+
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(0,212,232,.1); border-radius:12px; overflow:hidden; margin-top:32px; position:relative; z-index:1; }
+.astat { background:rgba(255,255,255,.04); padding:22px 20px; text-align:center; }
+.astat .n { font-family:var(--serif); font-size:40px; font-weight:700; color:white; line-height:1; }
+.astat .n sub { font-size:18px; color:var(--cyan); vertical-align:middle; }
+.astat .l { font-size:11px; color:rgba(255,255,255,.38); margin-top:5px; text-transform:uppercase; letter-spacing:.8px; }
+
+.about-right p { font-size:16px; color:var(--muted); line-height:1.82; margin-bottom:18px; font-weight:300; }
+.about-right p strong { color:var(--navy); font-weight:600; }
+
+.pillars { display:flex; flex-direction:column; gap:14px; margin-top:36px; }
+.pillar {
+  display:flex; gap:16px; align-items:flex-start;
+  padding:18px 22px; background:white; border-radius:10px;
+  border-left:3px solid var(--purple); box-shadow:0 2px 16px rgba(13,31,53,.05);
+  transition:all .25s;
+}
+.pillar:hover { transform:translateX(5px); box-shadow:0 6px 28px rgba(13,31,53,.09); border-left-color:var(--cyan); }
+.pi { font-size:22px; flex-shrink:0; margin-top:2px; }
+.pillar h4 { font-size:14.5px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.pillar p { font-size:13px; color:var(--muted); line-height:1.58; }
+
+/* ═════════════════════════════════════════
+   SERVICES / DIVISIONS
+═════════════════════════════════════════ */
+.svc-sec { background:var(--navy); }
+
+.svc-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px; flex-wrap:wrap; gap:24px; }
+.svc-sub { font-size:15.5px; color:rgba(255,255,255,.45); max-width:440px; line-height:1.7; font-weight:300; margin-top:12px; }
+
+/* Tab switcher */
+.svc-tabs { display:flex; background:rgba(255,255,255,.07); border-radius:10px; padding:4px; gap:4px; }
+.svc-tab { padding:10px 26px; border-radius:8px; font-size:13.5px; font-weight:500; color:rgba(255,255,255,.48); border:none; background:none; font-family:var(--sans); transition:all .22s; }
+.svc-tab.on { background:var(--purple); color:white; font-weight:700; }
+
+.svc-panel { display:none; }
+.svc-panel.on { display:grid; grid-template-columns:1fr 1fr; gap:18px; animation:fadeIn .35s ease both; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+.svc-card {
+  background:rgba(255,255,255,.04); border:1px solid rgba(0,212,232,.1);
+  border-radius:16px; padding:30px 28px; transition:all .3s; position:relative; overflow:hidden;
+}
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:0; background:linear-gradient(to top, rgba(139,47,201,.07), transparent); transition:height .3s; }
+.svc-card:hover { border-color:rgba(139,47,201,.35); transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.25); }
+.svc-card:hover::after { height:100%; }
+.svc-card.featured { border-color:rgba(139,47,201,.25); background:linear-gradient(135deg, rgba(139,47,201,.08), rgba(0,212,232,.04)); }
+.svc-card.full { grid-column:span 2; }
+.svc-card.full .svc-card-body { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+
+.svc-ico { width:48px; height:48px; border-radius:12px; background:rgba(0,212,232,.1); display:flex; align-items:center; justify-content:center; font-size:23px; margin-bottom:18px; position:relative; z-index:1; }
+.svc-card.featured .svc-ico { background:rgba(139,47,201,.2); }
+.svc-card h4 { font-family:var(--serif); font-size:20px; font-weight:600; color:white; margin-bottom:9px; position:relative; z-index:1; }
+.svc-card p { font-size:13.5px; color:rgba(255,255,255,.45); line-height:1.65; position:relative; z-index:1; }
+.chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:15px; position:relative; z-index:1; }
+.chip { font-size:11px; padding:3px 9px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.09); border-radius:100px; color:rgba(255,255,255,.52); font-family:var(--mono); }
+
+/* ═════════════════════════════════════════
+   PROCESS
+═════════════════════════════════════════ */
+.process-sec { background:white; }
+
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:64px; position:relative; }
+.process-grid::before { content:''; position:absolute; top:34px; left:12.5%; right:12.5%; height:1px; background:linear-gradient(90deg, transparent, var(--purple), var(--cyan), transparent); }
+
+.pstep { text-align:center; padding:0 24px; }
+.pstep-num-wrap { display:flex; align-items:center; justify-content:center; margin-bottom:26px; }
+.pstep-num { width:68px; height:68px; border-radius:50%; background:white; border:2px solid var(--purple); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; box-shadow:0 0 0 8px rgba(139,47,201,.06); transition:all .3s; }
+.pstep:hover .pstep-num { background:var(--purple); box-shadow:0 0 0 12px rgba(139,47,201,.1); }
+.pstep-num span { font-family:var(--serif); font-size:22px; font-weight:700; color:var(--purple); transition:color .3s; }
+.pstep:hover .pstep-num span { color:white; }
+.pstep h4 { font-family:var(--serif); font-size:18px; font-weight:500; color:var(--navy); margin-bottom:10px; }
+.pstep p { font-size:13.5px; color:var(--muted); line-height:1.65; font-weight:300; }
+
+.process-cta-bar {
+  margin-top:60px; background:var(--off); border-radius:16px;
+  padding:36px 44px; display:flex; align-items:center;
+  justify-content:space-between; gap:24px; flex-wrap:wrap;
+  border:1px solid var(--off-2);
+}
+.process-cta-bar h3 { font-family:var(--serif); font-size:26px; font-weight:400; color:var(--navy); margin-bottom:5px; }
+.process-cta-bar h3 em { font-style:italic; color:var(--purple); }
+.process-cta-bar p { font-size:14px; color:var(--muted); }
+.btn-primary-dark { display:inline-flex; align-items:center; gap:8px; background:var(--navy); color:white; padding:14px 28px; border-radius:8px; font-size:14px; font-weight:600; transition:all .25s; white-space:nowrap; }
+.btn-primary-dark:hover { background:var(--purple); transform:translateY(-1px); }
+
+/* ═════════════════════════════════════════
+   CASE STUDIES
+═════════════════════════════════════════ */
+.cs-sec { background:var(--off); }
+.cs-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:60px; }
+
+.cs-card { background:white; border-radius:20px; overflow:hidden; border:1.5px solid var(--off-2); box-shadow:0 2px 18px rgba(13,31,53,.05); transition:all .35s; }
+.cs-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(13,31,53,.12); border-color:rgba(139,47,201,.2); }
+.cs-top { padding:36px 36px 28px; border-bottom:1px solid var(--off-2); }
+.cs-badge { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:18px; }
+.cs-badge.staffing { background:rgba(139,47,201,.1); color:var(--purple); }
+.cs-badge.tech { background:rgba(0,212,232,.1); color:var(--cyan-dk); }
+.cs-card h3 { font-family:var(--serif); font-size:21px; font-weight:500; color:var(--navy); margin-bottom:12px; line-height:1.28; }
+.cs-card .cs-body { font-size:14px; color:var(--muted); line-height:1.75; font-weight:300; }
+.cs-metrics { display:grid; grid-template-columns:repeat(3,1fr); }
+.csm { padding:22px 18px; text-align:center; border-right:1px solid var(--off-2); }
+.csm:last-child { border-right:none; }
+.csm-val { font-family:var(--serif); font-size:26px; font-weight:600; line-height:1; margin-bottom:4px; }
+.csm-val.p { color:var(--purple); }
+.csm-val.c { color:var(--cyan-dk); }
+.csm-key { font-size:10.5px; text-transform:uppercase; letter-spacing:1px; color:var(--light); font-weight:600; }
+.cs-tags { padding:18px 36px; display:flex; flex-wrap:wrap; gap:6px; border-top:1px solid var(--off-2); }
+.cs-tag { font-size:11.5px; padding:4px 12px; background:var(--off); border-radius:100px; color:var(--muted); font-weight:500; border:1px solid var(--off-2); }
+
+/* ═════════════════════════════════════════
+   INDUSTRIES
+═════════════════════════════════════════ */
+.ind-sec { background:white; }
+.ind-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
+.ind-card { background:var(--off); border:1.5px solid transparent; border-radius:16px; padding:30px 26px; transition:all .3s; }
+.ind-card:hover { border-color:rgba(139,47,201,.25); background:white; transform:translateY(-5px); box-shadow:0 10px 40px rgba(13,31,53,.09); }
+.ind-ico { font-size:34px; margin-bottom:16px; }
+.ind-card h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--navy); margin-bottom:8px; }
+.ind-card p { font-size:13.5px; color:var(--muted); line-height:1.65; font-weight:300; }
+
+/* ═════════════════════════════════════════
+   WHY
+═════════════════════════════════════════ */
+.why-sec { background:var(--navy); }
+.why-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; margin-top:60px; }
+.why-left p { font-size:16px; color:rgba(255,255,255,.46); line-height:1.85; font-weight:300; margin-bottom:22px; }
+.why-left p strong { color:rgba(255,255,255,.78); font-weight:500; }
+
+.market-flags { display:flex; gap:10px; flex-wrap:wrap; margin-top:32px; }
+.flag-chip { display:flex; align-items:center; gap:8px; padding:9px 16px; background:rgba(0,212,232,.08); border:1px solid rgba(0,212,232,.18); border-radius:8px; transition:all .22s; }
+.flag-chip:hover { background:rgba(0,212,232,.14); border-color:rgba(0,212,232,.35); }
+.flag-chip span { font-size:18px; }
+.flag-chip p { font-size:13px; font-weight:500; color:rgba(255,255,255,.7); }
+
+.why-cards { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.why-card { background:rgba(255,255,255,.04); border:1px solid rgba(0,212,232,.1); border-radius:14px; padding:26px 22px; transition:all .3s; }
+.why-card:hover { background:rgba(0,212,232,.07); border-color:rgba(0,212,232,.28); transform:translateY(-3px); }
+.why-ico { font-size:28px; margin-bottom:12px; }
+.why-card h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:white; margin-bottom:7px; }
+.why-card p { font-size:13px; color:rgba(255,255,255,.38); line-height:1.65; font-weight:300; }
+
+/* ═════════════════════════════════════════
+   TESTIMONIALS
+═════════════════════════════════════════ */
+.proof-sec { background:white; }
+.proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+.proof-card { background:var(--off); border-radius:18px; padding:34px 28px; border:1.5px solid transparent; transition:all .3s; position:relative; }
+.proof-card:hover { border-color:rgba(139,47,201,.2); box-shadow:0 12px 40px rgba(13,31,53,.09); transform:translateY(-4px); }
+.proof-q { font-family:var(--serif); font-size:52px; color:var(--purple); line-height:.8; margin-bottom:6px; opacity:.5; }
+.proof-text { font-family:var(--serif); font-size:16px; color:var(--muted); line-height:1.72; font-style:italic; margin-bottom:26px; font-weight:400; }
+.proof-stars { display:flex; gap:3px; margin-bottom:16px; }
+.proof-star { width:14px; height:14px; fill:#C8A96E; }
+.proof-author { display:flex; align-items:center; gap:12px; }
+.proof-avatar { width:44px; height:44px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:18px; font-weight:700; color:var(--cyan); flex-shrink:0; }
+.proof-avatar.p2 { color:var(--purple); }
+.proof-avatar.p3 { color:rgba(232,64,42,.9); }
+.proof-name { font-size:14px; font-weight:600; color:var(--navy); }
+.proof-role { font-size:12px; color:var(--light); margin-top:1px; }
+
+/* ═════════════════════════════════════════
+   CONTACT
+═════════════════════════════════════════ */
+.contact-sec { background:var(--navy); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; margin-top:60px; }
+
+.trust-signals { display:flex; flex-direction:column; gap:12px; margin:28px 0 44px; }
+.trust-item { display:flex; align-items:center; gap:10px; }
+.trust-check { width:22px; height:22px; border-radius:50%; border:1px solid rgba(0,212,232,.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:11px; color:var(--cyan); }
+.trust-item p { font-size:14px; color:rgba(255,255,255,.45); }
+.trust-item strong { color:rgba(255,255,255,.78); }
+
+.contact-info p { font-size:16px; color:rgba(255,255,255,.46); line-height:1.8; font-weight:300; margin-bottom:0; }
+.contact-items { display:flex; flex-direction:column; gap:18px; }
+.c-item { display:flex; gap:14px; align-items:flex-start; }
+.c-ico { width:42px; height:42px; border-radius:10px; background:rgba(0,212,232,.1); border:1px solid rgba(0,212,232,.18); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.c-body h5 { font-size:11.5px; color:rgba(255,255,255,.32); margin-bottom:3px; text-transform:uppercase; letter-spacing:.8px; font-weight:700; }
+.c-body p, .c-body a { font-size:15px; color:rgba(255,255,255,.78); font-weight:400; }
+.c-body a { color:var(--cyan); transition:opacity .2s; }
+.c-body a:hover { opacity:.75; }
+
+/* Form */
+.cf { background:rgba(255,255,255,.04); border:1px solid rgba(0,212,232,.12); border-radius:20px; padding:42px 40px; }
+.cf-h { font-family:var(--serif); font-size:26px; font-weight:500; color:white; margin-bottom:5px; }
+.cf-sub { font-size:13px; color:rgba(255,255,255,.32); margin-bottom:30px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+.ff { margin-bottom:15px; }
+.ff label { display:block; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.38); margin-bottom:7px; text-transform:uppercase; letter-spacing:.8px; }
+.ff input, .ff select, .ff textarea { width:100%; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:13px 15px; color:white; font-family:var(--sans); font-size:14px; outline:none; transition:border .2s, background .2s; resize:vertical; -webkit-appearance:none; }
+.ff input::placeholder, .ff textarea::placeholder { color:rgba(255,255,255,.2); }
+.ff input:focus, .ff select:focus, .ff textarea:focus { border-color:rgba(0,212,232,.45); background:rgba(0,212,232,.05); }
+.ff input.err, .ff select.err, .ff textarea.err { border-color:rgba(232,64,42,.5); }
+.ferr { font-size:11.5px; color:rgba(232,64,42,.9); margin-top:4px; display:none; }
+.ferr.show { display:block; }
+.ff select option { background:var(--navy); color:white; }
+.btn-submit { width:100%; background:linear-gradient(135deg, var(--cyan), var(--cyan-dk)); color:var(--navy); padding:15px; border:none; border-radius:10px; font-size:15px; font-weight:700; font-family:var(--sans); transition:all .28s; margin-top:4px; display:flex; align-items:center; justify-content:center; gap:8px; }
+.btn-submit:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(0,212,232,.38); }
+.btn-submit:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+.form-ok { display:none; text-align:center; padding:52px 20px; }
+.form-ok .tick { font-size:50px; margin-bottom:14px; }
+.form-ok h4 { font-family:var(--serif); font-size:26px; font-weight:500; color:white; margin-bottom:8px; }
+.form-ok p { font-size:14px; color:rgba(255,255,255,.38); }
+
+/* ═════════════════════════════════════════
+   FOOTER
+═════════════════════════════════════════ */
+footer { background:#060D1A; border-top:1px solid rgba(0,212,232,.08); padding:72px 6% 34px; }
+.foot-in { max-width:1220px; margin:0 auto; }
+.foot-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:56px; margin-bottom:56px; }
+.foot-brand h3 { font-family:var(--serif); font-size:24px; font-weight:600; color:white; margin-bottom:3px; }
+.foot-brand h3 span { color:var(--cyan); }
+.foot-tagline { font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:2px; font-weight:700; margin-bottom:14px; }
+.foot-about { font-size:13.5px; color:rgba(255,255,255,.32); line-height:1.78; max-width:280px; }
+.foot-soc { display:flex; gap:9px; margin-top:20px; }
+.fsoc { width:37px; height:37px; border-radius:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.42); font-size:13px; font-weight:700; font-family:var(--serif); text-decoration:none; transition:all .22s; }
+.fsoc:hover { background:var(--cyan); border-color:var(--cyan); color:var(--navy); }
+.fcol h5 { font-size:11.5px; font-weight:700; color:rgba(255,255,255,.35); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:18px; }
+.fcol ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.fcol ul a { font-size:13.5px; color:rgba(255,255,255,.35); transition:color .2s; }
+.fcol ul a:hover { color:var(--cyan); }
+.foot-bottom { padding-top:28px; border-top:1px solid rgba(255,255,255,.05); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.foot-bottom p { font-size:12.5px; color:rgba(255,255,255,.22); }
+.foot-bottom span { color:var(--cyan); }
+
+/* ═════════════════════════════════════════
+   RESPONSIVE
+═════════════════════════════════════════ */
+@media (max-width:1040px) {
+  section { padding:80px 5%; }
+  .hero-content { grid-template-columns:1fr; gap:48px; }
+  .hero-right { display:none; }
+  .about-grid, .why-grid, .contact-grid { grid-template-columns:1fr; gap:44px; }
+  .svc-panel.on, .why-cards { grid-template-columns:1fr 1fr; }
+  .cs-grid { grid-template-columns:1fr; }
+  .ind-grid { grid-template-columns:1fr 1fr; }
+  .proof-grid { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr 1fr; gap:36px; }
+  .process-grid::before { display:none; }
+  .foot-grid { grid-template-columns:1fr 1fr; }
+  .nav-links { display:none; }
+  .hbg { display:flex; }
+  .svc-card.full .svc-card-body { grid-template-columns:1fr; }
+  .svc-card.full { grid-column:span 1; }
+}
+@media (max-width:660px) {
+  .hero-h1 { font-size:44px; }
+  .hero-metrics { gap:22px; flex-wrap:wrap; }
+  .svc-panel.on { grid-template-columns:1fr; }
+  .ind-grid, .why-cards { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+  .foot-grid { grid-template-columns:1fr; }
+  .cs-metrics { grid-template-columns:1fr; }
+  .csm { border-right:none; border-bottom:1px solid var(--off-2); }
+  .csm:last-child { border-bottom:none; }
+  .cf { padding:28px 22px; }
+  .process-grid { grid-template-columns:1fr; }
+  .process-cta-bar { padding:26px 24px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a href="#home" class="nav-logo" aria-label="HRaniti — Home">
+    <svg class="nav-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="22" cy="8" r="6" fill="#8B2FC9"/>
+      <path d="M6 16 Q6 11 11 11 L18 11 L18 25 L6 25 Z" fill="#5B2D8E"/>
+      <path d="M18 11 L25 11 Q30 11 30 16 L30 25 L18 25 Z" fill="#E8402A"/>
+      <path d="M4 27 Q4 32 9 32 L31 32 Q36 32 36 37 L4 37 Z" fill="#00D4E8"/>
+    </svg>
+    <span class="nav-wordmark">HR<span>aniti</span></span>
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How We Work</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch →</a></li>
+  </ul>
+
+  <button class="hbg" id="hbgBtn" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav class="mob-menu" id="mobMenu" aria-label="Mobile navigation">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#process">How We Work</a>
+  <a href="#industries">Industries</a>
+  <a href="#why">Why HRaniti</a>
+  <a href="#contact" class="mob-cta">Get in Touch →</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<main id="main">
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-orb-3" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+
+      <!-- Intent toggle -->
+      <div class="intent-wrap" role="group" aria-label="Select your need">
+        <button class="intent-btn on" onclick="setIntent('hire',this)" aria-pressed="true">Hire IT Talent</button>
+        <button class="intent-btn" onclick="setIntent('build',this)" aria-pressed="false">Build Software</button>
+      </div>
+
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        <span>Specialist Partner · Europe · India · USA</span>
+      </div>
+
+      <!-- Hire content -->
+      <div class="hcb on" id="hcb-hire" aria-live="polite">
+        <h1 class="hero-h1">Find the <em>Specialist</em><br><strong>Nobody Else</strong><br>Could Locate.</h1>
+        <p class="hero-p">
+          <strong>Validated SAP experts, AI engineers, and cloud architects</strong> — delivered within 48 hours with a full technical assessment report. No generalist shortlists. No wasted interview slots.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">Submit a Hiring Brief →</a>
+          <a href="#services" class="btn-ghost">View Services</a>
+        </div>
+      </div>
+
+      <!-- Build content -->
+      <div class="hcb" id="hcb-build" aria-live="polite">
+        <h1 class="hero-h1">Systems That <em>Scale</em><br><strong>Without</strong><br>Breaking.</h1>
+        <p class="hero-p">
+          <strong>Production-grade backend, AI, and cloud systems</strong> — architected and delivered by engineers from Intuit, Walmart, and SAP. Full end-to-end ownership, agile delivery.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">Share Your Brief →</a>
+          <a href="#casestudies" class="btn-ghost">See Case Studies</a>
+        </div>
+      </div>
+
+      <div class="hero-metrics" aria-label="Key numbers">
+        <div class="hero-stat">
+          <div class="hm-n">25<span>+</span></div>
+          <div class="hm-l">Enterprise Clients</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hm-n">10<span>+</span></div>
+          <div class="hm-l">Production Services</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hm-n">3</div>
+          <div class="hm-l">Global Markets</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hm-n">48<span>h</span></div>
+          <div class="hm-l">Talent Delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div class="hero-right" aria-hidden="true">
+      <div class="div-card hr">
+        <div class="dc-icon">🤝</div>
+        <h3>Specialist IT Staffing</h3>
+        <p>Niche permanent and freelance IT hiring with 100% technical validation before every submission. No generalist hiring — only verified expertise.</p>
+        <div class="div-tags">
+          <span class="dtag">SAP / ERP</span><span class="dtag">AI / ML</span>
+          <span class="dtag">DevOps</span><span class="dtag">Data Engineering</span>
+          <span class="dtag">Germany · USA · India</span>
+        </div>
+      </div>
+      <div class="div-card tech">
+        <div class="dc-icon">⚙️</div>
+        <h3>Technology Services</h3>
+        <p>Scalable backend systems, intelligent AI solutions, and high-performance interfaces — built by engineers from Intuit, Walmart, and SAP.</p>
+        <div class="div-tags">
+          <span class="dtag">Java · Spring Boot</span><span class="dtag">React · Next.js</span>
+          <span class="dtag">AWS · Azure</span><span class="dtag">LLM / GenAI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <p>Scroll</p>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-sec" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="mi">SAP Consulting <span class="ms">·</span></span>
+    <span class="mi">Custom Software <span class="ms">·</span></span>
+    <span class="mi">AI Engineering <span class="ms">·</span></span>
+    <span class="mi">Specialist Staffing <span class="ms">·</span></span>
+    <span class="mi">Cloud & DevOps <span class="ms">·</span></span>
+    <span class="mi">React & Mobile <span class="ms">·</span></span>
+    <span class="mi">Data Analytics <span class="ms">·</span></span>
+    <span class="mi">LLM & GenAI <span class="ms">·</span></span>
+    <span class="mi">SAP BTP · CAP · Fiori <span class="ms">·</span></span>
+    <span class="mi">Java · Spring Boot <span class="ms">·</span></span>
+    <span class="mi">100% Technical Validation <span class="ms">·</span></span>
+    <span class="mi">SAP Consulting <span class="ms">·</span></span>
+    <span class="mi">Custom Software <span class="ms">·</span></span>
+    <span class="mi">AI Engineering <span class="ms">·</span></span>
+    <span class="mi">Specialist Staffing <span class="ms">·</span></span>
+    <span class="mi">Cloud & DevOps <span class="ms">·</span></span>
+    <span class="mi">React & Mobile <span class="ms">·</span></span>
+    <span class="mi">Data Analytics <span class="ms">·</span></span>
+    <span class="mi">LLM & GenAI <span class="ms">·</span></span>
+    <span class="mi">SAP BTP · CAP · Fiori <span class="ms">·</span></span>
+    <span class="mi">Java · Spring Boot <span class="ms">·</span></span>
+    <span class="mi">100% Technical Validation <span class="ms">·</span></span>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="about-sec sec" id="about">
+  <div class="sec-in">
+    <div class="sec-label purple fade-up">Who We Are</div>
+    <h2 class="sec-h fade-up delay-1">Two divisions. <em>One vision.</em><br>Exceptional outcomes.</h2>
+
+    <div class="about-grid" style="margin-top:60px;">
+      <div class="about-visual fade-up delay-1">
+        <div class="about-card">
+          <div class="about-bg-letters">HR</div>
+          <div class="about-quote-wrap">
+            <p class="about-quote">"We don't just fill roles or write code — we solve the <em>problems that slow your business down.</em>"</p>
+            <p class="about-attr"><strong>Ruby Sathiyan</strong>Co-Founder, HRaniti</p>
+          </div>
+          <div class="about-stats">
+            <div class="astat"><div class="n">25<sub>+</sub></div><div class="l">Enterprise Clients</div></div>
+            <div class="astat"><div class="n">10<sub>+</sub></div><div class="l">Scalable Services</div></div>
+            <div class="astat"><div class="n">10<sub>+</sub></div><div class="l">SAP Modules</div></div>
+            <div class="astat"><div class="n">48<sub>h</sub></div><div class="l">Talent Delivery</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-right fade-up delay-2">
+        <p>HRaniti was built around a single conviction: <strong>companies deserve a partner who truly understands what they need</strong> — not just the job title or the project brief. That demands technical depth. We have it.</p>
+        <p>We operate two focused divisions — <strong>Specialist IT Staffing</strong> and <strong>Technology Services</strong> — serving product companies, SAP implementation partners, and digital transformation teams across <strong>Europe, USA, and India</strong>. We do not work in generalist hiring. We do not ship commodity software.</p>
+        <p>Our engineers and recruiters carry hands-on experience from companies like <strong>Intuit, Walmart, and SAP</strong>. That pedigree shapes how we work: with rigour, transparency, and full accountability for outcomes.</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pi">🎯</div>
+            <div><h4>Niche by Design</h4><p>We don't dabble in generalist hiring or commodity software. Every engagement is specialist, validated, and owned end-to-end.</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pi">🔬</div>
+            <div><h4>Technical Depth First</h4><p>Every candidate assessed before submission. Every system architected before a line of code is written.</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pi">🌍</div>
+            <div><h4>Global Reach, Local Precision</h4><p>Active talent pools across Germany, USA, and India — matched to your timezone, language, and market expectations.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="svc-sec sec" id="services" aria-label="Services">
+  <div class="sec-in">
+    <div class="svc-header">
+      <div>
+        <div class="sec-label fade-up">Our Services</div>
+        <h2 class="sec-h white fade-up delay-1">Two divisions.<br><em>Built for precision.</em></h2>
+        <p class="svc-sub fade-up delay-2">Specialist IT recruitment and bespoke software engineering — for companies that cannot afford to compromise on quality, speed, or technical depth.</p>
+      </div>
+      <div class="svc-tabs" role="tablist" aria-label="Service division">
+        <button class="svc-tab on" role="tab" aria-selected="true" onclick="showSvc('hr',this)">🤝 IT Staffing</button>
+        <button class="svc-tab" role="tab" aria-selected="false" onclick="showSvc('tech',this)">⚙️ Technology</button>
+      </div>
+    </div>
+
+    <!-- IT Staffing -->
+    <div class="svc-panel on" id="sp-hr" role="tabpanel">
+      <div class="svc-card featured fade-up">
+        <div class="svc-ico">🧩</div>
+        <h4>SAP & ERP Staffing</h4>
+        <p>Deep SAP talent across all major modules — from S/4HANA and BTP consultants to Fiori developers and SuccessFactors specialists. 10+ modules covered. Every candidate technically validated before submission. We work exclusively with companies that need the real thing, not a keyword match.</p>
+        <div class="chips"><span class="chip">SAP S/4HANA</span><span class="chip">BTP</span><span class="chip">CAP</span><span class="chip">Fiori</span><span class="chip">Oracle</span><span class="chip">Workday</span><span class="chip">Salesforce</span><span class="chip">D365</span></div>
+      </div>
+      <div class="svc-card fade-up delay-1">
+        <div class="svc-ico">🤖</div>
+        <h4>AI & Machine Learning Talent</h4>
+        <p>Validated ML Engineers and Data Scientists with real production experience — not just academic credentials. We screen rigorously for applied skills and hands-on deployments.</p>
+        <div class="chips"><span class="chip">ML Engineers</span><span class="chip">Data Scientists</span><span class="chip">LLM Specialists</span><span class="chip">GenAI</span></div>
+      </div>
+      <div class="svc-card fade-up delay-2">
+        <div class="svc-ico">☁️</div>
+        <h4>DevOps & Cloud Engineering</h4>
+        <p>Platform engineers, SREs, and cloud architects across AWS, Azure, and GCP. Permanent, freelance, or consultant — all technically pre-assessed against real role benchmarks.</p>
+        <div class="chips"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">Kubernetes</span><span class="chip">Platform Eng.</span></div>
+      </div>
+      <div class="svc-card fade-up delay-3">
+        <div class="svc-ico">📊</div>
+        <h4>Data & Analytics</h4>
+        <p>BI developers, data engineers, and analytics leads. From Power BI and Tableau to dbt and Snowflake — full modern data stack coverage with technical validation.</p>
+        <div class="chips"><span class="chip">BI Engineers</span><span class="chip">Data Engineering</span><span class="chip">AI/ML Analytics</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-ico">🏢</div>
+        <h4>HR & Payroll Specialists</h4>
+        <p>Specialist HR Analysts and Payroll professionals — particularly for SAP HCM and SuccessFactors environments across Germany and India. Rare expertise, reliably sourced.</p>
+        <div class="chips"><span class="chip">HR Analysts</span><span class="chip">Payroll</span><span class="chip">SAP HCM</span><span class="chip">SuccessFactors</span></div>
+      </div>
+      <div class="svc-card fade-up delay-1">
+        <div class="svc-ico">✅</div>
+        <h4>100% Technical Validation</h4>
+        <p>Every candidate undergoes our rigorous 3-layer process: technical screening, behavioural evaluation, and language/cultural fit assessment — before a single submission is made.</p>
+        <div class="chips"><span class="chip">Technical Screen</span><span class="chip">Behavioural Check</span><span class="chip">Structured Report</span></div>
+      </div>
+    </div>
+
+    <!-- Technology -->
+    <div class="svc-panel" id="sp-tech" role="tabpanel">
+      <div class="svc-card featured fade-up">
+        <div class="svc-ico">🔧</div>
+        <h4>Backend Engineering</h4>
+        <p>High-concurrency, distributed backend systems built to production standards by engineers who've shipped at enterprise scale. We architect for growth from day one — not as an afterthought. Fixed price, dedicated team, or time and materials.</p>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">WebFlux</span><span class="chip">Node.js</span><span class="chip">Laravel</span><span class="chip">C#</span><span class="chip">Microservices</span></div>
+      </div>
+      <div class="svc-card fade-up delay-1">
+        <div class="svc-ico">🧠</div>
+        <h4>AI & Data Solutions</h4>
+        <p>Applied AI with measurable business results — LLM integration, predictive analytics, ML model deployment, and GenAI-ready architectures built for what comes next.</p>
+        <div class="chips"><span class="chip">LLM Integration</span><span class="chip">ML Deployment</span><span class="chip">Predictive Analytics</span><span class="chip">GenAI</span></div>
+      </div>
+      <div class="svc-card fade-up delay-2">
+        <div class="svc-ico">🎨</div>
+        <h4>Frontend & Mobile</h4>
+        <p>Pixel-perfect, performant interfaces across web and mobile. Consumer-facing apps to enterprise dashboards — built with accessibility and performance as first-class concerns.</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">React Native</span><span class="chip">Vue.js</span></div>
+      </div>
+      <div class="svc-card fade-up delay-3">
+        <div class="svc-ico">🌐</div>
+        <h4>Cloud & DevOps</h4>
+        <p>Infrastructure as code, CI/CD pipelines, containerised deployments, and cloud-native architectures across all major platforms. Production-ready from launch day.</p>
+        <div class="chips"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">IaC</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-ico">🔗</div>
+        <h4>SAP & ERP Integrations</h4>
+        <p>Deep SAP ecosystem expertise — BTP, CAP, Fiori, Integration Suite, S/4HANA. We bridge your ERP with your wider tech stack cleanly, without the technical debt.</p>
+        <div class="chips"><span class="chip">SAP BTP</span><span class="chip">CAP</span><span class="chip">Fiori</span><span class="chip">S/4HANA</span><span class="chip">Integration Suite</span></div>
+      </div>
+      <div class="svc-card fade-up delay-1">
+        <div class="svc-ico">📈</div>
+        <h4>Analytics & BI Platforms</h4>
+        <p>High-concurrency, real-time data platforms and BI dashboards for enterprises that need live intelligence at scale — not batch-processed reports that are already outdated.</p>
+        <div class="chips"><span class="chip">Real-time Data</span><span class="chip">BI Dashboards</span><span class="chip">High-concurrency</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process-sec sec" id="process">
+  <div class="sec-in">
+    <div style="text-align:center;">
+      <div class="sec-label fade-up" style="justify-content:center;">How We Work</div>
+      <h2 class="sec-h fade-up delay-1" style="text-align:center;">A process built around <em>your outcome.</em></h2>
+      <p class="sec-sub fade-up delay-2" style="margin:14px auto 0; text-align:center;">Transparent, structured, and accountable — from brief to deployment and beyond.</p>
+    </div>
+
+    <div class="process-grid" style="margin-top:64px;">
+      <div class="pstep fade-up">
+        <div class="pstep-num-wrap"><div class="pstep-num"><span>01</span></div></div>
+        <h4>Receive Brief</h4>
+        <p>You share your project or hiring requirement. We listen to the technical detail, not just the surface request — because the details are what matter.</p>
+      </div>
+      <div class="pstep fade-up delay-1">
+        <div class="pstep-num-wrap"><div class="pstep-num"><span>02</span></div></div>
+        <h4>Assess & Architect</h4>
+        <p>Staffing: technical and behavioural screening begins. Technology: solution design, architecture, timeline, and a transparent cost proposal — delivered in 24 hours.</p>
+      </div>
+      <div class="pstep fade-up delay-2">
+        <div class="pstep-num-wrap"><div class="pstep-num"><span>03</span></div></div>
+        <h4>Build & Deliver</h4>
+        <p>Pre-assessed candidates with full reports and fit ratings, or agile sprints with regular reviews. You're always informed — never left guessing what's happening.</p>
+      </div>
+      <div class="pstep fade-up delay-3">
+        <div class="pstep-num-wrap"><div class="pstep-num"><span>04</span></div></div>
+        <h4>Place & Support</h4>
+        <p>Smooth onboarding, production release, structured handover, and ongoing support included. We own the outcome — not just the delivery milestone.</p>
+      </div>
+    </div>
+
+    <div class="process-cta-bar fade-up">
+      <div>
+        <h3>Staffing: profiles in <em>48 hours.</em> Technology: response in <em>24 hours.</em></h3>
+        <p>We move fast because we're always prepared — never because we cut corners.</p>
+      </div>
+      <a href="#contact" class="btn-primary-dark">Share Your Brief →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CASE STUDIES ══════════ -->
+<section class="cs-sec sec" id="casestudies" aria-label="Case studies">
+  <div class="sec-in">
+    <div class="sec-label purple fade-up">Case Studies</div>
+    <h2 class="sec-h fade-up delay-1">Real problems. <em>Real results.</em></h2>
+
+    <div class="cs-grid">
+      <div class="cs-card fade-up delay-1">
+        <div class="cs-top">
+          <span class="cs-badge staffing">🤝 IT Staffing</span>
+          <h3>SAP Specialist Placed in Germany — 6 Days. After 3 Months of Failed Search.</h3>
+          <p class="cs-body">A leading SAP implementation partner in Germany had been searching independently for a senior SAP BTP developer for over three months. Every candidate submitted by other agencies lacked either technical depth or German language fluency. HRaniti delivered a shortlist of 3 fully validated candidates within 48 hours. The client hired within 6 days of receiving our first submission.</p>
+        </div>
+        <div class="cs-metrics">
+          <div class="csm"><div class="csm-val p">6</div><div class="csm-key">Days to Hire</div></div>
+          <div class="csm"><div class="csm-val p">3</div><div class="csm-key">Candidates Sent</div></div>
+          <div class="csm"><div class="csm-val p">3 mo</div><div class="csm-key">Previous Search</div></div>
+        </div>
+        <div class="cs-tags">
+          <span class="cs-tag">SAP BTP</span><span class="cs-tag">CAP</span><span class="cs-tag">Technical Validation</span><span class="cs-tag">German Market</span>
+        </div>
+      </div>
+
+      <div class="cs-card fade-up delay-2">
+        <div class="cs-top">
+          <span class="cs-badge tech">⚙️ Technology Services</span>
+          <h3>B2B Platform Handling 10× Expected Load — Zero Incidents on Launch Day.</h3>
+          <p class="cs-body">A Bengaluru-based B2B SaaS startup approached HRaniti with a rough backend specification and a firm 12-week deadline. Our engineers redesigned the architecture from the ground up, built and tested the full stack, and delivered a production system that absorbed 10× the anticipated launch traffic — with zero incidents in the first three months post-launch.</p>
+        </div>
+        <div class="cs-metrics">
+          <div class="csm"><div class="csm-val c">10×</div><div class="csm-key">Load Handled</div></div>
+          <div class="csm"><div class="csm-val c">12 wk</div><div class="csm-key">Delivered In</div></div>
+          <div class="csm"><div class="csm-val c">Zero</div><div class="csm-key">Incidents</div></div>
+        </div>
+        <div class="cs-tags">
+          <span class="cs-tag">Java · Spring Boot</span><span class="cs-tag">React</span><span class="cs-tag">AWS</span><span class="cs-tag">Microservices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INDUSTRIES ══════════ -->
+<section class="ind-sec sec" id="industries">
+  <div class="sec-in">
+    <div class="sec-label purple fade-up">Industries We Serve</div>
+    <h2 class="sec-h fade-up delay-1">Built for companies where <em>precision matters.</em></h2>
+    <div class="ind-grid">
+      <div class="ind-card fade-up"><div class="ind-ico">🏭</div><h4>SAP Implementation & Consulting</h4><p>Trusted by SAP partners who need specialists, not generalists — from functional consultants to technical integrators and BTP developers.</p></div>
+      <div class="ind-card fade-up delay-1"><div class="ind-ico">🚀</div><h4>Product Companies & Startups</h4><p>Engineering-first teams that need scalable software and the talent to maintain it as they scale. We grow with you.</p></div>
+      <div class="ind-card fade-up delay-2"><div class="ind-ico">🔄</div><h4>Digital Transformation</h4><p>Enterprises migrating to cloud-native, AI-ready architectures — requiring both engineering capability and specialist talent.</p></div>
+      <div class="ind-card fade-up"><div class="ind-ico">🏦</div><h4>Financial Services & FinTech</h4><p>High-compliance systems with the security and precision that regulated financial environments demand.</p></div>
+      <div class="ind-card fade-up delay-1"><div class="ind-ico">🏥</div><h4>Healthcare & Life Sciences</h4><p>Specialist ERP implementations and bespoke software for healthcare organisations across Europe and India.</p></div>
+      <div class="ind-card fade-up delay-2"><div class="ind-ico">🛒</div><h4>Retail & E-Commerce</h4><p>High-concurrency platforms, real-time analytics, and mobile-first engineering for modern, fast-moving retail businesses.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY ══════════ -->
+<section class="why-sec sec" id="why">
+  <div class="sec-in">
+    <div class="sec-label fade-up">Why HRaniti</div>
+    <h2 class="sec-h white fade-up delay-1">Not just a vendor.<br>A <em>technical partner.</em></h2>
+
+    <div class="why-grid">
+      <div class="why-left fade-up delay-1">
+        <p>Most agencies send you CVs. Most software shops send you invoices. We take a different view: <strong>we don't win unless you win.</strong> Every engagement starts with understanding your technical reality — not just your brief.</p>
+        <p>Our team carries hands-on experience from some of the world's most demanding product environments. We've built for scale. We know what good looks like. And we bring that standard to every client, regardless of size or geography.</p>
+        <div class="market-flags">
+          <div class="flag-chip"><span>🇩🇪</span><p>Germany</p></div>
+          <div class="flag-chip"><span>🇺🇸</span><p>USA</p></div>
+          <div class="flag-chip"><span>🇮🇳</span><p>India</p></div>
+          <div class="flag-chip"><span>🇪🇺</span><p>Europe</p></div>
+        </div>
+      </div>
+
+      <div class="why-cards fade-up delay-2">
+        <div class="why-card"><div class="why-ico">🏆</div><h4>Enterprise-Grade Pedigree</h4><p>Engineers and recruiters with hands-on experience from Intuit, Walmart, and SAP. We bring product-company rigour to every brief, every time.</p></div>
+        <div class="why-card"><div class="why-ico">⚡</div><h4>Speed Without Shortcuts</h4><p>Pre-screened talent in 48 hours. Technology proposals in 24. Fast because we're always prepared — never because we cut corners.</p></div>
+        <div class="why-card"><div class="why-ico">🔒</div><h4>100% Technical Validation</h4><p>No unvalidated submissions. No unarchitected builds. Everything reviewed and approved before it reaches you.</p></div>
+        <div class="why-card"><div class="why-ico">🤖</div><h4>AI-Native by Default</h4><p>LLM integration and GenAI architectures are embedded in how we build and who we hire — not expensive add-ons.</p></div>
+        <div class="why-card"><div class="why-ico">📋</div><h4>Full Transparency</h4><p>Structured candidate reports with scores and fit ratings. Sprint-by-sprint project updates. Nothing hidden, ever.</p></div>
+        <div class="why-card"><div class="why-ico">🌐</div><h4>3 Markets, 1 Partner</h4><p>Active talent networks and engineering capacity across Germany, USA, and India. One contact, global reach.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section class="proof-sec sec" id="testimonials">
+  <div class="sec-in">
+    <div class="sec-label purple fade-up">Client Stories</div>
+    <h2 class="sec-h fade-up delay-1">Trusted by teams who <em>demand more.</em></h2>
+
+    <div class="proof-grid">
+      <div class="proof-card fade-up">
+        <div class="proof-stars">
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+        </div>
+        <div class="proof-q">"</div>
+        <p class="proof-text">HRaniti didn't just find us a SAP developer — they found us the right one. The technical assessment report submitted before our interview was more thorough and accurate than anything we'd received from any agency, large or small.</p>
+        <div class="proof-author">
+          <div class="proof-avatar">M</div>
+          <div><div class="proof-name">Marcus B.</div><div class="proof-role">Head of Technology · SAP Partner, Germany</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card fade-up delay-1">
+        <div class="proof-stars">
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+        </div>
+        <div class="proof-q">"</div>
+        <p class="proof-text">Their team took our rough backend spec and delivered a production-ready platform in 12 weeks. Three months post-launch, it's handling 10× the load we anticipated — with zero incidents. That's not luck, that's architecture.</p>
+        <div class="proof-author">
+          <div class="proof-avatar p2">P</div>
+          <div><div class="proof-name">Priya K.</div><div class="proof-role">CTO · B2B SaaS Startup, Bengaluru</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card fade-up delay-2">
+        <div class="proof-stars">
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          <svg class="proof-star" viewBox="0 0 14 14"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+        </div>
+        <div class="proof-q">"</div>
+        <p class="proof-text">What sets HRaniti apart is that they genuinely understand what they're hiring for. When our recruiter spoke with our engineering team, it was a real technical dialogue — not the awkward gap you get with most agencies.</p>
+        <div class="proof-author">
+          <div class="proof-avatar p3">T</div>
+          <div><div class="proof-name">Thomas A.</div><div class="proof-role">Engineering Manager · Digital Transformation, USA</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact-sec sec" id="contact" aria-label="Contact">
+  <div class="sec-in">
+    <div class="sec-label fade-up">Get in Touch</div>
+    <h2 class="sec-h white fade-up delay-1">Let's build something <em>remarkable.</em></h2>
+
+    <div class="contact-grid">
+      <div class="fade-up delay-1">
+        <p class="contact-info" style="font-size:16px;color:rgba(255,255,255,.46);line-height:1.8;font-weight:300;margin-bottom:0;">Whether you're looking to hire a specialist, build a system, or simply explore what's possible — share your brief and we'll respond within 24 hours with clarity and a concrete plan.</p>
+
+        <div class="trust-signals">
+          <div class="trust-item"><div class="trust-check">✓</div><p><strong>Response within 24 hours</strong> — always guaranteed.</p></div>
+          <div class="trust-item"><div class="trust-check">✓</div><p>Trusted by <strong>25+ enterprise clients</strong> across 3 markets.</p></div>
+          <div class="trust-item"><div class="trust-check">✓</div><p><strong>100% confidential.</strong> No data sharing, no spam.</p></div>
+        </div>
+
+        <div class="contact-items">
+          <div class="c-item"><div class="c-ico">📧</div><div class="c-body"><h5>Email</h5><p><a href="mailto:info@hraniti.com">info@hraniti.com</a></p></div></div>
+          <div class="c-item"><div class="c-ico">📞</div><div class="c-body"><h5>Phone</h5><p><a href="tel:+917259134646">+91-72591 34646</a></p></div></div>
+          <div class="c-item"><div class="c-ico">🌐</div><div class="c-body"><h5>Website</h5><p><a href="https://hraniti.com" target="_blank" rel="noopener">hraniti.com</a></p></div></div>
+          <div class="c-item"><div class="c-ico">💼</div><div class="c-body"><h5>LinkedIn</h5><p><a href="https://linkedin.com/company/hraniti" target="_blank" rel="noopener">linkedin.com/company/hraniti</a></p></div></div>
+          <div class="c-item"><div class="c-ico">📍</div><div class="c-body"><h5>Active Markets</h5><p style="color:rgba(255,255,255,.5);">Germany · USA · India · Europe</p></div></div>
+        </div>
+      </div>
+
+      <div class="cf fade-up delay-2">
+        <h3 class="cf-h">Send Us a Brief</h3>
+        <p class="cf-sub">We respond within 24 hours — usually much sooner.</p>
+
+        <div id="cfWrap">
+          <div class="form-row">
+            <div class="ff"><label for="fn">First Name *</label><input type="text" id="fn" placeholder="Jane" autocomplete="given-name"><div class="ferr" id="e-fn">Required.</div></div>
+            <div class="ff"><label for="ln">Last Name *</label><input type="text" id="ln" placeholder="Smith" autocomplete="family-name"><div class="ferr" id="e-ln">Required.</div></div>
+          </div>
+          <div class="ff"><label for="em">Work Email *</label><input type="email" id="em" placeholder="jane@company.com" autocomplete="email"><div class="ferr" id="e-em">Enter a valid email.</div></div>
+          <div class="ff"><label for="co">Company</label><input type="text" id="co" placeholder="Your company name" autocomplete="organization"></div>
+          <div class="ff">
+            <label for="sv">I'm Interested In *</label>
+            <select id="sv"><option value="">Select a service…</option><option>IT Staffing / Recruitment</option><option>Custom Software Development</option><option>SAP / ERP Integration</option><option>AI & Data Solutions</option><option>Cloud & DevOps</option><option>Both Staffing & Technology</option></select>
+            <div class="ferr" id="e-sv">Please select a service.</div>
+          </div>
+          <div class="ff"><label for="ms">Tell Us More *</label><textarea id="ms" rows="4" placeholder="Describe your requirement — the more detail, the better we can help…"></textarea><div class="ferr" id="e-ms">Please add a brief description.</div></div>
+          <button class="btn-submit" id="sbtn" onclick="doSubmit(event)">Send Brief → We'll Respond in 24h</button>
+        </div>
+
+        <div class="form-ok" id="formOk">
+          <div class="tick">✅</div>
+          <h4>Brief received!</h4>
+          <p>Thank you — we'll be in touch within 24 hours. Please check your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer role="contentinfo">
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <h3>HR<span>aniti</span></h3>
+          <div class="foot-tagline">Where Change Begins</div>
+          <p class="foot-about">Specialist IT staffing and technology services across Germany, USA, and India. Technical depth. Validated outcomes. Built on integrity.</p>
+        </div>
+        <div class="foot-soc">
+          <a href="https://linkedin.com/company/hraniti" target="_blank" rel="noopener" class="fsoc" aria-label="LinkedIn">in</a>
+          <a href="mailto:info@hraniti.com" class="fsoc" aria-label="Email">✉</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>IT Staffing</h5>
+        <ul>
+          <li><a href="#services">SAP & ERP Roles</a></li>
+          <li><a href="#services">AI / ML Talent</a></li>
+          <li><a href="#services">DevOps & Cloud</a></li>
+          <li><a href="#services">Data & Analytics</a></li>
+          <li><a href="#services">HR & Payroll</a></li>
+          <li><a href="#services">Permanent · Freelance</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Technology</h5>
+        <ul>
+          <li><a href="#services">Backend Engineering</a></li>
+          <li><a href="#services">Frontend & Mobile</a></li>
+          <li><a href="#services">AI & Data Solutions</a></li>
+          <li><a href="#services">Cloud & DevOps</a></li>
+          <li><a href="#services">SAP Integrations</a></li>
+          <li><a href="#services">Bespoke Development</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About HRaniti</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#casestudies">Case Studies</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#why">Why HRaniti</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 HRaniti. All rights reserved. Built with precision. <span>Where Change Begins.</span></p>
+      <p style="font-size:12px;color:rgba(255,255,255,.18);">Germany · USA · India · Europe</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Hamburger ── */
+const hbgBtn = document.getElementById('hbgBtn');
+const mobMenu = document.getElementById('mobMenu');
+hbgBtn.addEventListener('click', () => {
+  const open = hbgBtn.classList.toggle('open');
+  open ? mobMenu.classList.add('open') : mobMenu.classList.remove('open');
+  hbgBtn.setAttribute('aria-expanded', String(open));
+});
+mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hbgBtn.classList.remove('open'); mobMenu.classList.remove('open');
+  hbgBtn.setAttribute('aria-expanded','false');
+}));
+
+/* ── Nav slim on scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('slim', scrollY > 60);
+}, {passive:true});
+
+/* ── Active nav link on scroll ── */
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
+  navAs.forEach(a => { a.classList.toggle('on', a.getAttribute('href') === '#'+cur); });
+}, {passive:true});
+
+/* ── Fade up on scroll ── */
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('visible');
+}), {threshold:.1, rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+/* ── Intent toggle ── */
+function setIntent(id, btn) {
+  document.querySelectorAll('.hcb').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.intent-btn').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+  document.getElementById('hcb-'+id).classList.add('on');
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+}
+
+/* ── Service tabs ── */
+function showSvc(id, btn) {
+  document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.svc-tab').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-selected','false'); });
+  document.getElementById('sp-'+id).classList.add('on');
+  btn.classList.add('on'); btn.setAttribute('aria-selected','true');
+}
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if (tgt) { e.preventDefault(); tgt.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+
+/* ── Form validation ── */
+function chk(id, errId, fn) {
+  const el = document.getElementById(id), er = document.getElementById(errId);
+  const ok = fn(el.value.trim());
+  el.classList.toggle('err', !ok);
+  if (er) er.classList.toggle('show', !ok);
+  return ok;
+}
+function doSubmit(e) {
+  e.preventDefault();
+  const ok = [
+    chk('fn','e-fn', v => v.length > 0),
+    chk('ln','e-ln', v => v.length > 0),
+    chk('em','e-em', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
+    chk('sv','e-sv', v => v.length > 0),
+    chk('ms','e-ms', v => v.length > 9),
+  ].every(Boolean);
+  if (!ok) return;
+  const btn = document.getElementById('sbtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  setTimeout(() => {
+    document.getElementById('cfWrap').style.display = 'none';
+    document.getElementById('formOk').style.display = 'block';
+  }, 900);
+}
+</script>
+</body>
+</html>
+
