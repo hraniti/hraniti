@@ -170,7 +170,6 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--purple), var(--violet));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1802,7 +1801,14 @@
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <a href="#home" class="nav-logo" aria-label="HRaniti Home">
-      <div class="logo-mark">H</div>
+      <div class="logo-mark">
+        <svg class="nav-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="8" r="6" fill="#8B2FC9" />
+          <path d="M6 16 Q6 11 11 11 L18 11 L18 25 L6 25 Z" fill="#5B2D8E" />
+          <path d="M18 11 L25 11 Q30 11 30 16 L30 25 L18 25 Z" fill="#E8402A" />
+          <path d="M4 27 Q4 32 9 32 L31 32 Q36 32 36 37 L4 37 Z" fill="#00D4E8" />
+        </svg>
+      </div>
       <div>
         <div class="logo-text">HR<span>aniti</span></div>
         <div class="logo-tag">HR Consulting & Staffing</div>
@@ -2608,7 +2614,7 @@
     <section class="contact-sec" id="contact" aria-labelledby="ct-h">
       <div class="sec-in">
         <span class="sec-tag reveal">Get in Touch</span>
-        <h2 class="sec-h wh reveal d1" id="ct-h">Let's find your<br><em>next hire.</em></h2>
+        <h2 class="sec-h wh reveal d1" id="ct-h">Partner with us.<br><em>Let's get started.</em></h2>
         <p class="sec-sub wh reveal d2">Send us a brief. We respond within 24 hours — usually much sooner.</p>
         <div class="contact-grid">
           <div class="cinfo reveal d2">
@@ -2616,15 +2622,17 @@
               <div class="ci-icon" style="background:rgba(201,146,47,.1);">📧</div>
               <div>
                 <div class="ci-h">Email Us</div>
-                <div class="ci-p"><a href="mailto:hello@hraniti.com">hello@hraniti.com</a><br>For new briefs: <a
-                    href="mailto:hire@hraniti.com">hire@hraniti.com</a></div>
+                <div class="ci-p">
+                  <a href="mailto:info@hraniti.com">info@hraniti.com</a>
+                </div>
               </div>
             </div>
             <div class="ci">
-              <div class="ci-icon" style="background:rgba(26,138,122,.1);">🌍</div>
+              <div class="ci-icon" style="background:rgba(26,138,122,.1);">📞</div>
               <div>
-                <div class="ci-h">Global Offices</div>
-                <div class="ci-p">Germany · United States · India<br>Permanent, Contract & Interim across all markets
+                <div class="ci-h">Phone</div>
+                <div class="ci-p">
+                  <p><a href="tel:+917259134646">+91-72591 34646</a></p>
                 </div>
               </div>
             </div>
@@ -2634,6 +2642,15 @@
                 <div class="ci-h">LinkedIn</div>
                 <div class="ci-p"><a href="https://linkedin.com/company/hraniti" target="_blank"
                     rel="noopener">linkedin.com/company/hraniti</a></div>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon" style="background:rgba(104,69,184,.1);">📍</div>
+              <div>
+                <div class="ci-h">Active Markets</div>
+                <div class="ci-p">
+                  USA · India · Europe
+                </div>
               </div>
             </div>
             <div class="ci">
@@ -2759,7 +2776,7 @@
           <div class="foot-soc">
             <a href="https://linkedin.com/company/hraniti" target="_blank" rel="noopener" class="fsoc"
               aria-label="LinkedIn">in</a>
-            <a href="mailto:hello@hraniti.com" class="fsoc" aria-label="Email">✉</a>
+            <a href="mailto:info@hraniti.com" class="fsoc" aria-label="Email">✉</a>
           </div>
         </div>
         <div class="fcol">
@@ -2792,18 +2809,20 @@
             <li><a href="#why">Why HRaniti</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact Us</a></li>
-            <li><a href="mailto:hello@hraniti.com">hello@hraniti.com</a></li>
+            <li><a href="mailto:info@hraniti.com">info@hraniti.com</a></li>
           </ul>
         </div>
       </div>
       <div class="foot-bottom">
-        <p>© 2025 HRaniti. All rights reserved. <span>IT · Pharma · Semiconductor · HR Consulting</span></p>
+        <p>© <span id="copyrigh-year"></span> HRaniti. All rights reserved. <span>IT · Pharma · Semiconductor · HR Consulting</span></p>
         <p>Germany · United States · India</p>
       </div>
     </div>
   </footer>
 
   <script>
+    const date = new Date();
+    document.getElementById('copyrigh-year').innerHTML = date.getFullYear();
     /* Nav */
     const hbgBtn = document.getElementById('hbgBtn');
     const mobNav = document.getElementById('mobNav');
