@@ -1518,6 +1518,15 @@
             margin: 8px 0 4px;
         }
 
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .ff select option {
             background: var(--navy-mid);
             color: white;
@@ -2805,6 +2814,9 @@
                         <h3>Send Us a Brief</h3>
                         <p class="cs">We respond within 24 hours — usually much sooner.</p>
                         <form id="cfWrap" method="POST">
+                            <label class="hp-field" for="website" aria-hidden="true">Website</label>
+                            <input class="hp-field" type="text" id="website" name="_gotcha" tabindex="-1"
+                                autocomplete="off">
                             <div class="form-row">
                                 <div class="ff">
                                     <label for="fn">First Name *</label>
@@ -3007,7 +3019,17 @@
         });
 
         const TURNSTILE_SITE_KEY = "0x4AAAAAADryZw5GCnTHLToK";
-        const TURNSTILE_WORKER_URL = "https://contact-form.YOUR_SUBDOMAIN.workers.dev";
+        const FORMSPREE_URL = "https://formspree.io/f/mlgogpqe";
+        // Set after deploying Cloudflare Worker; leave empty to use Formspree directly
+        const TURNSTILE_WORKER_URL = "";
+
+        function getSubmitUrl() {
+            if (TURNSTILE_WORKER_URL && !TURNSTILE_WORKER_URL.includes("YOUR_SUBDOMAIN")) {
+                return TURNSTILE_WORKER_URL;
+            }
+
+            return FORMSPREE_URL;
+        }
 
         let turnstileToken = null;
         let turnstileWidgetId = null;
@@ -3068,6 +3090,7 @@
             const ind = document.getElementById("ind");
             const sv = document.getElementById("sv");
             const ms = document.getElementById("ms");
+            const honeypot = document.getElementById("website");
 
             // Error elements
             const errors = {
@@ -3084,6 +3107,13 @@
             turnstileError.style.display = "none";
 
             let isValid = true;
+
+            // Honeypot: bots fill hidden fields — pretend success, do not submit
+            if (honeypot && honeypot.value.trim() !== "") {
+                form.style.display = "none";
+                document.getElementById("formOk").style.display = "block";
+                return;
+            }
 
             // Validation
             if (!fn.value.trim()) {
@@ -3131,11 +3161,12 @@
             data.set("cf-turnstile-response", turnstileToken);
 
             try {
-                const response = await fetch(TURNSTILE_WORKER_URL, {
+                const response = await fetch(getSubmitUrl(), {
                     method: "POST",
                     body: data,
                     headers: {
                         Accept: "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
                     },
                 });
 
