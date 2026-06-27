@@ -1514,6 +1514,10 @@
             display: block;
         }
 
+        #turnstile-widget {
+            margin: 8px 0 4px;
+        }
+
         .ff select option {
             background: var(--navy-mid);
             color: white;
@@ -2800,7 +2804,7 @@
                     <div class="cf reveal d3 in">
                         <h3>Send Us a Brief</h3>
                         <p class="cs">We respond within 24 hours — usually much sooner.</p>
-                        <form id="cfWrap" action="https://formspree.io/f/mlgogpqe" method="POST">
+                        <form id="cfWrap" method="POST">
                             <div class="form-row">
                                 <div class="ff">
                                     <label for="fn">First Name *</label>
@@ -2870,6 +2874,10 @@
                                 <textarea id="ms" rows="4" name="message"
                                     placeholder="Describe your requirement — role, seniority, timeline, location…"></textarea>
                                 <div class="ferr" id="e-ms">Please add a brief description.</div>
+                            </div>
+                            <div class="ff">
+                                <div id="turnstile-widget"></div>
+                                <div class="ferr" id="e-turnstile">Please complete the security check.</div>
                             </div>
                             <button type="submit" class="btn-sub" id="sbtn">Send Brief → We'll Respond in 24h</button>
                         </form>
@@ -2945,6 +2953,7 @@
         </div>
     </footer>
 
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
     <script>
         const date = new Date();
         document.getElementById('copyrigh-year').innerHTML = date.getFullYear();
@@ -2997,11 +3006,60 @@
             });
         });
 
+        const TURNSTILE_SITE_KEY = "0x4AAAAAADryZw5GCnTHLToK";
+        const TURNSTILE_WORKER_URL = "https://contact-form.YOUR_SUBDOMAIN.workers.dev";
+
+        let turnstileToken = null;
+        let turnstileWidgetId = null;
+
+        function onTurnstileSuccess(token) {
+            turnstileToken = token;
+            document.getElementById("e-turnstile").style.display = "none";
+        }
+
+        function onTurnstileError(errorCode) {
+            turnstileToken = null;
+            const el = document.getElementById("e-turnstile");
+
+            if (errorCode === 110200) {
+                el.textContent = "Domain not authorized. Add your GitHub Pages domain in Cloudflare Turnstile → Hostname Management.";
+            } else {
+                el.textContent = "Security check failed. Please refresh and try again.";
+            }
+
+            el.style.display = "block";
+            console.error("[Turnstile] error", errorCode);
+        }
+
+        function onTurnstileExpired() {
+            turnstileToken = null;
+            if (window.turnstile && turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        function resetTurnstile() {
+            turnstileToken = null;
+            if (window.turnstile && turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        turnstileWidgetId = turnstile.render("#turnstile-widget", {
+            sitekey: TURNSTILE_SITE_KEY,
+            theme: "light",
+            size: "flexible",
+            callback: onTurnstileSuccess,
+            "error-callback": onTurnstileError,
+            "expired-callback": onTurnstileExpired,
+        });
+
         document.getElementById("cfWrap").addEventListener("submit", async function (e) {
             e.preventDefault();
 
             const form = e.target;
             const button = document.getElementById("sbtn");
+            const turnstileError = document.getElementById("e-turnstile");
 
             // Fields
             const fn = document.getElementById("fn");
@@ -3023,6 +3081,7 @@
 
             // Reset errors
             Object.values(errors).forEach(el => el.style.display = "none");
+            turnstileError.style.display = "none";
 
             let isValid = true;
 
@@ -3057,6 +3116,11 @@
                 isValid = false;
             }
 
+            if (!turnstileToken) {
+                turnstileError.style.display = "block";
+                isValid = false;
+            }
+
             if (!isValid) return;
 
             // Disable button while sending
@@ -3064,9 +3128,10 @@
             button.innerText = "Sending...";
 
             const data = new FormData(form);
+            data.set("cf-turnstile-response", turnstileToken);
 
             try {
-                const response = await fetch(form.action, {
+                const response = await fetch(TURNSTILE_WORKER_URL, {
                     method: "POST",
                     body: data,
                     headers: {
@@ -3078,13 +3143,15 @@
                     form.style.display = "none";
                     document.getElementById("formOk").style.display = "block";
                 } else {
-                    const resData = await response.json();
+                    const resData = await response.json().catch(() => ({}));
                     console.error(resData);
                     alert("Submission failed. Please try again.");
+                    resetTurnstile();
                 }
             } catch (error) {
                 console.error(error);
                 alert("Network error. Please try again.");
+                resetTurnstile();
             }
 
             // Re-enable button
